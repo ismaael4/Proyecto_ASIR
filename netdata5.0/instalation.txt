@@ -1,0 +1,88 @@
+//NETDATA
+wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh
+apt install apache2
+apt install npm
+npm install chartjs-adapter-date-fns es lo mismo pero con otro comando
+yarn add chartjs-adapter-date-fns igual q el de arriba
+wget -O /etc/netdata/netdata.conf http://localhost:19999/netdata.conf //FICHERO DE CONF
+
+//Cambiar Hostname
+sudo nano /etc/hosts
+sudo nano /etc/hostname
+
+
+//Pruebas
+//Disco + 1G
+fallocate -l 1G fichero12.txt
+//Stress CPU
+stress --cpu 100 -t 10
+ndc.etmcAGDICc8k88bSrpXqraPbNQLu2daNQi3xWLXVNIIumRKemOkbwzoeU9vljou8Kb2HOGhW1L0aJQsGbrmJyIpWvt3N4zVOWZcDHQ5iBchI1QB8Rrg14CYyJImuiay3
+he meti  lo del backend y la api y va
+
+para añadirlo al espacio con ejecutar el comando de integrar node ya se mete pero con la maquina nueva
+USAR EL SCRIPT PARA CAMBIAR LOCALHOST POR LA IP Y YA FUNCIONAA
+#!/bin/bash
+
+# Función para modificar una palabra en un archivo
+modificar_palabra_en_archivo() {
+    # Solicitar al usuario el nombre del archivo
+    read -p "Por favor, ingresa el nombre del archivo que deseas modificar: " nombre_archivo
+
+    # Verificar si el archivo existe
+    if [ -f "$nombre_archivo" ]; then
+        # Solicitar al usuario la palabra que desea modificar
+        read -p "Ingresa la palabra que deseas modificar en el archivo: " palabra_original
+
+        # Solicitar al usuario la palabra por la que desea reemplazar
+        read -p "Ingresa la nueva palabra por la que deseas reemplazarla: " palabra_nueva
+
+        # Realizar el reemplazo en el archivo
+        sed -i "s/$palabra_original/$palabra_nueva/g" "$nombre_archivo"
+
+        echo "La palabra '$palabra_original' ha sido modificada por '$palabra_nueva' en el archivo '$nombre_archivo'."
+    else
+        echo "El archivo '$nombre_archivo' no existe."
+    fi
+}
+
+# Llamar a la función principal
+modificar_palabra_en_archivo
+
+
+
+
+este script cambia namehost ademas de cambiar de ROOMS o instalar netdata
+#!/bin/bash
+
+# Parar el servicio de Netdata si está en ejecución
+sudo systemctl stop netdata 2>/dev/null
+
+# Eliminar el archivo que contiene el ID del agente de Netdata si existe
+sudo rm /var/lib/netdata/registry/netdata.public.unique.id 2>/dev/null
+
+# Solicitar al usuario si desea cambiar el nombre de host
+read -p "¿Desea cambiar el nombre de host? (s/n): " change_hostname
+if [ "$change_hostname" == "s" ]; then
+    # Solicitar al usuario un nuevo nombre de host
+    read -p "Ingrese el nuevo nombre de host: " new_hostname
+
+    # Cambiar el nombre de host en /etc/hostname
+    echo "$new_hostname" | sudo tee /etc/hostname >/dev/null
+
+    # Cambiar el nombre de host en /etc/hosts
+    sudo sed -i "s/^\(127.0.1.1\s\+\).*$/\1$new_hostname/" /etc/hosts
+
+    echo "El nombre de host se ha cambiado a '$new_hostname'."
+else
+    echo "No se realizarán cambios en el nombre de host."
+fi
+
+# Solicitar al usuario que ingrese el comando completo para instalar y reclamar Netdata
+echo "Ingrese el comando completo para instalar y reclamar Netdata (asegúrate de incluir el token):"
+read -p "> " install_command
+
+# Ejecutar el comando proporcionado por el usuario
+eval "$install_command"
+
+# Iniciar el servicio de Netdata si no estaba en ejecución
+sudo systemctl start netdata 2>/dev/null

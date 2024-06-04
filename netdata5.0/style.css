@@ -1,0 +1,45 @@
+/* Estilos para los contenedores de gráficos */
+.chart-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: calc(33% - 15%);
+    margin-bottom: 50px;
+}
+
+/* Estilos adicionales para la fila de donuts */
+.donuts-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las etiquetas de los gráficos */
+.label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #000;
+}
+
+/* Estilos para las etiquetas de los gráficos (CPU, RAM, Disco, Red) */
+.cpu-label, .ram-label, .disk-label, .network-label, .disk-write-label, .disk-read-label {
+    top: 110%; /* Ajustar posición vertical */
+}
+
+/* Estilos para los datos de carga/uso en los gráficos */
+.cpu-load, .ram-load, .disk-usage, .network-usage, .disk-write-usage, .disk-read-usage {
+    font-size: 18px; /* Tamaño de fuente */
+    color: #000; /* Color del texto */
+}
+
+/* Estilos adicionales para la fila de discos */
+.disk-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
