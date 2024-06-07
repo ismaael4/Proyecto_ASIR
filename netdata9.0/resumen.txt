@@ -1,0 +1,7 @@
+En Prometeus.yml
+        - targets: ['192.168.2.50:9093']
+En script.js
+// Función para obtener las alertas del Alertmanager
+function getAlerts() {
+    const apiUrl = 'http://192.168.2.50:9093/api/v2/alerts';
+        
