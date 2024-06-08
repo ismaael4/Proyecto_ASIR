@@ -1,0 +1,321 @@
+/* Estilos para los contenedores de gráficos */
+.chart-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: calc(33% - 15%);
+    margin-bottom: 50px;
+}
+
+/* Estilos adicionales para la fila de donuts */
+.donuts-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las etiquetas de los gráficos */
+.label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #000;
+}
+
+/* Estilos para las etiquetas de los gráficos (CPU, RAM, Disco, Red) */
+.cpu-label, .ram-label, .disk-label, .network-label, .disk-write-label, .disk-read-label {
+    top: 110%; /* Ajustar posición vertical */
+}
+
+/* Estilos para los datos de carga/uso en los gráficos */
+.cpu-load, .ram-load, .disk-usage, .network-usage, .disk-write-usage, .disk-read-usage {
+    font-size: 18px; /* Tamaño de fuente */
+    color: #000; /* Color del texto */
+}
+
+/* Estilos adicionales para la fila de discos */
+.disk-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las alertas */
+.alert {
+    background-color: #483f24;
+    color: #212529;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.alert:hover {
+    border-color: #000000;
+    background-color: #ffd041;
+    cursor: pointer;
+}
+
+.alert h3 {
+    margin-top: 0;
+}
+
+.alert p {
+    margin-bottom: 5px;
+}
+
+.alert.critical {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.alert.warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.alert.info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.alert.success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Contenedor principal de las alertas */
+.alerts-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* Estilos para el botón de mostrar/ocultar el menú */
+.toggle-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-menu:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el menú lateral */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 20px; /* Alineado con el botón */
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Oculto por defecto */
+    pointer-events: none; /* No interactuable por defecto */
+}
+
+.menu.show {
+    opacity: 1; /* Mostrar el menú */
+    pointer-events: auto; /* Hacer interactuable */
+}
+
+/* Estilos para la lista de targets */
+.targets-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.targets-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos para los targets "up" */
+.targets-list .up {
+    background-color: #d4edda; /* Verde */
+    color: #155724;
+}
+
+/* Estilos para los targets "down" */
+.targets-list .down {
+    background-color: #f8d7da; /* Rojo */
+    color: #721c24;
+}
+
+/* Estilos para la lista de targets */
+.targets-container {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.targets-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.targets-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.targets-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.targets-list li:hover {
+    border: 2px solid #4CAF50; /* Cambiar color del borde al pasar el ratón */
+    transform: scale(1.05); /* Agrandar un poco al pasar el ratón */
+}
+
+.instance-info {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Color de texto */
+    margin-top: 20px; /* Espacio superior */
+    text-align: center; /* Alineación centrada */
+    background-color: #f0f0f0; /* Color de fondo */
+    padding: 10px; /* Espacio interno */
+    border-radius: 5px; /* Borde redondeado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+
+  /* Tema claro */
+body.light-theme {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.light-theme .container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/* Tema oscuro */
+body.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme .container {
+    background-color: #444;
+    border: 1px solid #222;
+}
+
+/* Toggle para cambiar entre temas */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+
+  
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Ajustar el tamaño de las etiquetas de los gráficos */
+    .label {
+        font-size: 16px;
+    }
+
+    /* Ajustar el tamaño de los datos de carga/uso en los gráficos */
+    .cpu-load, .ram-load, .disk-usage, .network-usage, .disk-write-usage, .disk-read-usage {
+        font-size: 14px;
+    }
+
+    /* Ajustar el tamaño de las alertas */
+    .alert {
+        padding: 8px;
+    }
+
+    /* Estilo para la sección de la instancia */
+    .instance-info {
+        display: none; /* Ocultar la instancia en dispositivos móviles */
+    }
+
+    /* Estilo para el botón de alternar tema */
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+        background-color: #0056b3;
+    }
+
+    /* Estilo para el botón de targets */
+    .targets-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+    }
+
+    .targets-list li.active {
+        background-color: #28a745; /* Cambiar color del botón activo */
+        color: #fff;
+    }
+
+    /* Ajustar las gráficas en vertical */
+    .donuts-row, .disk-row {
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección a columna */
+        align-items: center; /* Centrar horizontalmente */
+        margin-bottom: 20px;
+    }
+
+    /* Ajustar el tamaño de las gráficas */
+    .chart-container {
+        display: inline-block;
+        width: 100%;
+        max-width: 400px; /* Ancho máximo para evitar que se vean demasiado pequeñas */
+        margin-bottom: 20px;
+    }
+}
